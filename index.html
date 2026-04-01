@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Responsive Layouts</title>
+  <title>Tamagotchi Simulator</title>
   <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,8 +23,33 @@
 </head>
 
 <body>
-  <!-- Place your site's HTML here -->
-  <p>This text will display on your site! Jan 19</p>
+  <div class="device">
+  <div class="screen">
+    <div class="egg-wrapper">
+    <!-- Egg background (always visible) -->
+    <img id="egg" src="img/egg.png" />
+
+    <!-- Pet layered on top -->
+    <img id="pet" src="img/normal.png" />
+
+    <!-- Buttons ON the egg -->
+    <img id="feed" class="btn" src="img/nbutton1.png" />
+    <img id="feed" class="btn" src="img/nbutton2.png" /> 
+    <img id="feed" class="btn" src="img/nbutton3.png" />
+  </div>
+
+    <div class="dialogue-box">
+    <p id="mood">...</p>
+  </div>
+
+  <div id="name-popup">
+    <div class="name-box">
+      <p>Name your Tamagotchi!</p>
+      <input type="text" id="pet-name-input" placeholder="Enter name..." />
+      <button id="start-btn">Start</button>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 
