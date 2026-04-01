@@ -179,17 +179,3 @@ body {
   0%, 50% { opacity: 1; }
   50.1%, 100% { opacity: 0; }
 }
-
-@media (max-width: 600px) {
-  .egg-wrapper {
-    width: 95vw;
-  }
-
-  #pet {
-    width: 30%;
-  }
-
-  .btn {
-    width: 14%;
-  }
-}
