@@ -88,6 +88,7 @@ body {
   bottom: 120%;
   left: 50%;
   transform: translateX(-50%);
+  font-family: "Bitcount Grid Double", system-ui;
   
   background: #333;
   color: #fff;
@@ -123,13 +124,13 @@ body {
 
 
 /* Adjust these to match your egg image */
-#feed-btn {
+#play-btn {
   top: 86%;
   left: 41.5%;
   transform: translate(-50%, -50%);
 }
 
-#play-btn {
+#feed-btn {
   top: 88.5%;
   left: 49%;
   transform: translate(-50%, -50%);
@@ -208,7 +209,7 @@ body {
   box-shadow: 0 6px 0 #333;
 
   width: 250px;
-  font-family: sans-serif;
+  font-family: "Bitcount Grid Double", system-ui;
 }
 
 /* Input */
@@ -219,6 +220,7 @@ body {
   border: 2px solid #333;
   border-radius: 8px;
   font-size: 14px;
+  font-family: "Bitcount Grid Double", system-ui;
 }
 
 /* Button */
