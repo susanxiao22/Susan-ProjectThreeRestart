@@ -1,3 +1,6 @@
+// =========================
+// 🧠 STATES
+// =========================
 const STATES = {
   NORMAL: "normal",
   HAPPY: "happy",
@@ -8,6 +11,9 @@ const STATES = {
 let currentState = STATES.NORMAL;
 let previousState = STATES.NORMAL;
 
+// =========================
+// 🎯 ELEMENTS
+// =========================
 const pet = document.getElementById("pet");
 const moodText = document.getElementById("mood");
 
@@ -27,6 +33,7 @@ const HUNGRY_THRESHOLD = 60;
 
 let isHungry = false;
 let isSleepy = false;
+let isSpriteLocked = false; // 👈 NEW
 
 // Load saved pet name
 let petName = localStorage.getItem("petName") || "";
@@ -80,14 +87,14 @@ function typeDialogue(text, speed = 50) {
 }
 
 // =========================
-// 👁️ BLINKING (only idle NORMAL state)
+// 👁️ BLINKING (idle only)
 // =========================
 function blink() {
-  if (currentState !== STATES.NORMAL) return;
+  if (currentState !== STATES.NORMAL || isSpriteLocked) return;
 
   pet.src = "img/blink.png";
   setTimeout(() => {
-    if (currentState === STATES.NORMAL) {
+    if (currentState === STATES.NORMAL && !isSpriteLocked) {
       pet.src = "img/normal.png";
     }
   }, 150);
@@ -105,6 +112,9 @@ function setState(newState) {
 
   previousState = currentState;
   currentState = newState;
+
+  // 👇 prevent override if locked (except sleeping)
+  if (isSpriteLocked && newState !== STATES.SLEEPING) return;
 
   stopAnimation();
 
@@ -129,6 +139,7 @@ function setState(newState) {
       break;
 
     case STATES.SLEEPING:
+      isSpriteLocked = false; // 👈 unlock here
       playAnimation("img/sleep.png", "img/sleep2.png", 600);
 
       setTimeout(() => {
@@ -141,7 +152,7 @@ function setState(newState) {
 }
 
 // =========================
-// 🐣 NAME POPUP HANDLER
+// 🐣 NAME POPUP
 // =========================
 function startGame() {
   petName = input.value.trim();
@@ -174,7 +185,12 @@ function randomNeeds() {
 
   if (Math.random() < 0.4 && !isSleepy && currentState !== STATES.SLEEPING) {
     isSleepy = true;
+
     typeDialogue(`${petName} is getting sleepy...`, 50);
+
+    // 👇 LOCK to blink sprite
+    setSprite("img/blink.png");
+    isSpriteLocked = true;
   }
 }
 
@@ -184,6 +200,8 @@ setInterval(randomNeeds, 10000);
 // 🎮 BUTTON ACTIONS
 // =========================
 document.getElementById("feed").onclick = () => {
+  isSpriteLocked = false; // 👈 unlock
+
   hunger -= 30;
   if (hunger < 0) hunger = 0;
 
@@ -195,12 +213,15 @@ document.getElementById("feed").onclick = () => {
 };
 
 document.getElementById("play").onclick = () => {
+  isSpriteLocked = false; // 👈 unlock
+
   typeDialogue("Yay!", 30);
   setState(STATES.HAPPY);
   clickAnim();
 };
 
 document.getElementById("sleep").onclick = () => {
+  isSpriteLocked = false; // 👈 unlock
   isSleepy = false;
 
   typeDialogue("Zzz...", 30);
