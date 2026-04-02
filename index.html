@@ -21,8 +21,9 @@
 
   <meta name="theme-color" content="#fafafa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Jersey+10&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -41,12 +42,23 @@
     </div>
 
     <div class="btn" id="play-btn" data-tooltip="Feed your Tamagotchi!">
-      <img id="feed" src="img/nbutton2.png" />
+      <img id="play" src="img/nbutton2.png" />
     </div>
 
     <div class="btn" id="sleep-btn" data-tooltip="Put your Tamagotchi to bed!">
       <img id="sleep" src="img/nbutton3.png" />
 </div>  </div>
+
+<!-- WELCOME POPUP -->
+<div id="welcome-popup">
+  <div class="name-box">
+    <p>Welcome to Tamagotchi Life!</p>
+      <br>Here you will be able to take care of your very own virtual pet. They will need a lot of care and attention.<br>
+      Feed it, play with it, and help it grow!
+      <p>Do you agree to take care of it?</p>
+    <button id="agree-btn">I Agree</button>
+  </div>
+</div>
 
     <div class="dialogue-box">
     <p id="mood">...</p>

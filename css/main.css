@@ -56,6 +56,47 @@ body {
   z-index: 10; 
 }
 
+/* WELCOME POPUP (same style as name popup) */
+/* WELCOME POPUP (bigger box) */
+#welcome-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000066;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1001; /* above everything else */
+}
+
+#welcome-popup .name-box {
+  width: 450px;      /* bigger than the 250px of the name popup */
+  height: 280px; 
+  padding: 24px;     /* slightly more padding */
+  font-family: "Jersey 10", sans-serif;
+  font-size: 1.2rem; 
+
+}
+
+/* "I Agree" button styling (same as #start-btn) */
+#agree-btn {
+  padding: 6px 12px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #f4efc3;
+  cursor: pointer;
+  font-family: "Bitcount Grid Double", system-ui;
+  margin-top: 25px;
+}
+
+#agree-btn:active {
+  transform: scale(0.95);
+}
+
 /* Buttons positioned ON egg */
 
 .btn {

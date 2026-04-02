@@ -11,6 +11,15 @@ const STATES = {
 let currentState = STATES.NORMAL;
 let previousState = STATES.NORMAL;
 
+const welcomePopup = document.getElementById("welcome-popup");
+const agreeBtn = document.getElementById("agree-btn");
+
+// When user clicks "I Agree"
+agreeBtn.onclick = () => {
+  welcomePopup.style.display = "none";
+  popup.style.display = "flex"; // show name popup
+};
+
 // =========================
 // 🎯 ELEMENTS
 // =========================
