@@ -57,36 +57,85 @@ body {
 }
 
 /* Buttons positioned ON egg */
+
 .btn {
   position: absolute;
   width: 7%;
   cursor: pointer;
+  z-index: 20;
+}
+
+/* Make image fill wrapper */
+.btn img {
+  width: 100%;
+  display: block;
   image-rendering: pixelated;
-  z-index: 10;
 }
 
 .btn:active {
   transform: scale(0.9);
 }
 
-.btn:active {
-  transform: scale(0.9);
+
+.btn:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
 }
+
+.btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: #333;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 999;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  bottom: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  border: 5px solid transparent;
+  border-top-color: #333;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn:hover::after,
+.btn:hover::before {
+  opacity: 1;
+}
+
 
 /* Adjust these to match your egg image */
-#feed {
+#feed-btn {
   top: 86%;
   left: 41.5%;
   transform: translate(-50%, -50%);
 }
 
-#play {
+#play-btn {
   top: 88.5%;
   left: 49%;
   transform: translate(-50%, -50%);
 }
 
-#sleep {
+#sleep-btn {
   top: 86%;
   left: 56.5%;
   transform: translate(-50%, -50%);
