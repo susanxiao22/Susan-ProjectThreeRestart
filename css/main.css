@@ -1,11 +1,21 @@
-/* Place CSS styles here */
 body {
   margin: 0;
-  background: #f4efc3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+
+  background-image: url("../img/wallpaper2.jpg"); /* adjust path */
+  background-repeat: repeat;
+
+  animation: scrollBg 20s linear infinite;
+  background-size: 2000px; 
+}
+
+@keyframes scrollBg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 350px 0;
+  }
 }
 
 /* Container */
@@ -104,7 +114,7 @@ body {
   padding: 12px 16px;
   box-shadow: 0 6px 0 #333;
   text-align: center;
-  font-family: sans-serif;
+  font-family: "Bitcount Grid Double", system-ui;
 
   /* 👇 new: control spacing */
   margin-top: 15px; /* smaller gap */
@@ -179,3 +189,4 @@ body {
   0%, 50% { opacity: 1; }
   50.1%, 100% { opacity: 0; }
 }
+
