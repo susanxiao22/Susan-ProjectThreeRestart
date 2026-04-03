@@ -194,21 +194,21 @@ input.addEventListener("keypress", (e) => {
 // 🔲 RANDOM NEEDS
 // =========================
 function randomNeeds() {
-  hunger += 5;
-  if (hunger > MAX_HUNGER) hunger = MAX_HUNGER;
+  if (currentState === STATES.SLEEPING) return;
 
-  if (hunger >= HUNGRY_THRESHOLD && !isHungry && currentState !== STATES.SLEEPING) {
+  // Don't trigger if already in a need
+  if (isHungry || isSleepy) return;
+
+  const need = Math.random() < 0.5 ? "hungry" : "sleepy";
+
+  if (need === "hungry") {
     isHungry = true;
     typeDialogue(`${petName} is getting hungry...`, 50);
     setState(STATES.HUNGRY);
-  }
-
-  if (Math.random() < 0.4 && !isSleepy && currentState !== STATES.SLEEPING) {
+  } else {
     isSleepy = true;
-
     typeDialogue(`${petName} is getting sleepy...`, 50);
 
-    // 👇 LOCK to blink sprite
     setSprite("img/blink.png");
     isSpriteLocked = true;
   }
