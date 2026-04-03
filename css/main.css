@@ -250,7 +250,8 @@ body {
   box-shadow: 0 6px 0 #333;
 
   width: 250px;
-  font-family: "Bitcount Grid Double", system-ui;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 1.2rem; 
 }
 
 /* Input */
