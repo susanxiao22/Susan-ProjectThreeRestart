@@ -177,6 +177,17 @@ startBtn.onclick = startGame;
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") startGame();
+
+  agreeBtn.onclick = () => {
+  welcomePopup.style.display = "none";
+  popup.style.display = "flex";
+
+  if (localStorage.getItem("sound") === "on") {
+    music.volume = 0.4;
+    music.play();
+  }
+};
+
 });
 
 // =========================
@@ -248,3 +259,31 @@ function clickAnim() {
     { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1 }
   );
 }
+
+const music = document.getElementById("bg-music");
+const soundToggle = document.getElementById("sound-toggle");
+
+let isSoundOn = false;
+
+// Load saved preference
+if (localStorage.getItem("sound") === "on") {
+  isSoundOn = true;
+  soundToggle.textContent = "🔊";
+} else {
+  soundToggle.textContent = "🔇";
+}
+
+soundToggle.onclick = () => {
+  isSoundOn = !isSoundOn;
+
+  if (isSoundOn) {
+    music.volume = 0.4; // soft background
+    music.play();
+    soundToggle.textContent = "🔊";
+    localStorage.setItem("sound", "on");
+  } else {
+    music.pause();
+    soundToggle.textContent = "🔇";
+    localStorage.setItem("sound", "off");
+  }
+};
