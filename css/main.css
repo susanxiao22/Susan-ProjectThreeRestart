@@ -2,11 +2,10 @@ body {
   margin: 0;
   height: 100vh;
 
-  background-image: url("../img/wallpaper2.jpg"); /* adjust path */
-  background-repeat: repeat;
-
+  background-image: url("../img/wallpaper2.jpg");
+  background-repeat: repeat-x;
+  background-size: cover; /* cover entire screen */
   animation: scrollBg 20s linear infinite;
-  background-size: 2000px; 
 }
 
 @keyframes scrollBg {
@@ -41,20 +40,18 @@ body {
 
 .egg-wrapper {
   position: relative;
-  width: min(90vw, 600px);
-  aspect-ratio: 3 / 4; /* keeps the image ratio */
-  max-height: 70vh; /* prevent it from taking full height */
+  width: min(90vw, 600px);  /* max width for desktop */
+  aspect-ratio: 3/4;        /* maintain egg ratio */
+  max-height: 70vh;         /* don’t overflow screen height */
 }
 
-/* Pet sits on top */
 #pet {
   position: absolute;
   top: 54.5%;
   left: 49%;
   transform: translate(-50%, -50%);
-  width: 20%; /* scales with egg */
-  image-rendering: pixelated;
-  z-index: 10; 
+  width: 20%;                /* scales with egg */
+  max-width: 120px;          /* optional cap on large screens */
 }
 
 /* WELCOME POPUP (same style as name popup) */
@@ -184,6 +181,30 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/* Buttons on egg */
+#play-btn, #feed-btn, #sleep-btn {
+  width: 7%;
+}
+
+/* Adjust positions for tablets */
+@media (max-width: 768px) {
+  #play-btn { top: 88%; left: 40%; }
+  #feed-btn { top: 90%; left: 50%; }
+  #sleep-btn { top: 88%; left: 60%; }
+
+  .btn { width: 10%; }
+}
+
+/* Adjust positions for phones */
+@media (max-width: 480px) {
+  #play-btn { top: 88%; left: 38%; }
+  #feed-btn { top: 90%; left: 50%; }
+  #sleep-btn { top: 88%; left: 62%; }
+
+  .btn { width: 12%; }
+}
+
+
 .dialogue-box::before {
   content: "";
   position: absolute;
@@ -210,6 +231,15 @@ body {
 
   /* 👇 new: control spacing */
   margin-top: 15px; /* smaller gap */
+    font-size: 1rem; /* adjust with screen */
+}
+
+@media (max-width: 768px) {
+  .dialogue-box { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .dialogue-box { font-size: 0.85rem; }
 }
 
 #mood {
@@ -302,7 +332,16 @@ body {
   cursor: pointer;
 
   box-shadow: 0 4px 0 #333;
+
 }
+
+@media (max-width: 480px) {
+  #sound-toggle {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
 
 #sound-toggle:active {
   transform: translateY(2px);
@@ -337,7 +376,7 @@ body {
   border-radius: 8px;
   background: #f4efc3;
   cursor: pointer;
-  font-family: "Bitcount Grid Double", system-ui;
+  font-family: "Jersey 10", sans-serif;
 }
 
 #overwhelmed-btn:active {
