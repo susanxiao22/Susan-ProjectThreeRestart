@@ -209,7 +209,7 @@ body {
 
 /* Adjust positions for tablets */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   #play-btn { top: 86%; left: 41%; }
   #feed-btn { top: 89%; left: 49%; }
   #sleep-btn { top: 86%; left: 57%; }
