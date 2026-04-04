@@ -33,16 +33,17 @@ body {
 /* Egg fills the container */
 #egg {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto%;
   display: block;
 }
 
 .egg-wrapper {
   position: relative;
-  width: min(90vw, 600px);  /* max width for desktop */
-  aspect-ratio: 3/4;        /* maintain egg ratio */
-  max-height: 70vh;         /* don’t overflow screen height */
+  width: min(90vw, 600px);
+  max-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #pet {
@@ -52,6 +53,26 @@ body {
   transform: translate(-50%, -50%);
   width: 20%;                /* scales with egg */
   max-width: 120px;          /* optional cap on large screens */
+}
+
+#play-btn { top: 80%; left: 42%; transform: translate(-50%, -50%); }
+#feed-btn { top: 82%; left: 50%; transform: translate(-50%, -50%); }
+#sleep-btn { top: 80%; left: 58%; transform: translate(-50%, -50%); }
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  #play-btn { top: 80%; left: 41%; }
+  #feed-btn { top: 82%; left: 50%; }
+  #sleep-btn { top: 80%; left: 59%; }
+  .btn { width: 10%; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  #play-btn { top: 79%; left: 40%; }
+  #feed-btn { top: 81%; left: 50%; }
+  #sleep-btn { top: 79%; left: 60%; }
+  .btn { width: 12%; }
 }
 
 /* WELCOME POPUP (same style as name popup) */
@@ -164,19 +185,19 @@ body {
 
 /* Adjust these to match your egg image */
 #play-btn {
-  top: 86%;
+  top: 89%;
   left: 41.5%;
   transform: translate(-50%, -50%);
 }
 
 #feed-btn {
-  top: 88.5%;
+  top: 92%;
   left: 49%;
   transform: translate(-50%, -50%);
 }
 
 #sleep-btn {
-  top: 86%;
+  top: 89%;
   left: 56.5%;
   transform: translate(-50%, -50%);
 }
@@ -187,19 +208,29 @@ body {
 }
 
 /* Adjust positions for tablets */
+
+@media (max-width: 1200px) {
+  #play-btn { top: 86%; left: 41%; }
+  #feed-btn { top: 89%; left: 49%; }
+  #sleep-btn { top: 86%; left: 57%; }
+
+  .btn { width: 10%; }
+}
+
+
 @media (max-width: 768px) {
-  #play-btn { top: 88%; left: 40%; }
-  #feed-btn { top: 90%; left: 50%; }
-  #sleep-btn { top: 88%; left: 60%; }
+  #play-btn { top: 86%; left: 41%; }
+  #feed-btn { top: 89%; left: 49%; }
+  #sleep-btn { top: 86%; left: 57%; }
 
   .btn { width: 10%; }
 }
 
 /* Adjust positions for phones */
 @media (max-width: 480px) {
-  #play-btn { top: 88%; left: 38%; }
-  #feed-btn { top: 90%; left: 50%; }
-  #sleep-btn { top: 88%; left: 62%; }
+  #play-btn { top: 87%; left: 41%; }
+  #feed-btn { top: 89%; left: 49%; }
+  #sleep-btn { top: 86%; left: 57%; }
 
   .btn { width: 12%; }
 }
