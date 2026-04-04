@@ -209,14 +209,6 @@ body {
 
 /* Adjust positions for tablets */
 
-@media (max-width: 1200px) {
-  #play-btn { top: 86%; left: 41%; }
-  #feed-btn { top: 89%; left: 49%; }
-  #sleep-btn { top: 86%; left: 57%; }
-
-  .btn { width: 10%; }
-}
-
 @media (max-width: 768px) {
   #play-btn { top: 86%; left: 41%; }
   #feed-btn { top: 89%; left: 49%; }
