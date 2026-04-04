@@ -4,7 +4,7 @@ body {
 
   background-image: url("../img/wallpaper2.jpg");
   background-repeat: repeat-x;
-  background-size: cover; /* cover entire screen */
+  background-size: cover; 
   animation: scrollBg 20s linear infinite;
 }
 
@@ -17,20 +17,17 @@ body {
   }
 }
 
-
-/* Container */
 .screen {
   position: relative;
   width: 100vw;
   height: 100vh;
 
   display: flex;
-  flex-direction: column; /* 👈 important */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
 }
 
-/* Egg fills the container */
 #egg {
   width: 100%;
   height: auto;
@@ -51,32 +48,14 @@ body {
   top: 54.5%;
   left: 49%;
   transform: translate(-50%, -50%);
-  width: 20%;                /* scales with egg */
-  max-width: 120px;          /* optional cap on large screens */
+  width: 20%;                
+  max-width: 120px;          
 }
 
 #play-btn { top: 80%; left: 42%; transform: translate(-50%, -50%); }
 #feed-btn { top: 82%; left: 50%; transform: translate(-50%, -50%); }
 #sleep-btn { top: 80%; left: 58%; transform: translate(-50%, -50%); }
 
-/* Tablet adjustments */
-@media (max-width: 768px) {
-  #play-btn { top: 80%; left: 41%; }
-  #feed-btn { top: 82%; left: 50%; }
-  #sleep-btn { top: 80%; left: 59%; }
-  .btn { width: 10%; }
-}
-
-/* Mobile adjustments */
-@media (max-width: 480px) {
-  #play-btn { top: 79%; left: 40%; }
-  #feed-btn { top: 81%; left: 50%; }
-  #sleep-btn { top: 79%; left: 60%; }
-  .btn { width: 12%; }
-}
-
-/* WELCOME POPUP (same style as name popup) */
-/* WELCOME POPUP (bigger box) */
 #welcome-popup {
   position: fixed;
   top: 0;
@@ -89,19 +68,17 @@ body {
   justify-content: center;
   align-items: center;
 
-  z-index: 1001; /* above everything else */
+  z-index: 1001; 
 }
 
 #welcome-popup .name-box {
-  width: 450px;      /* bigger than the 250px of the name popup */
+  width: 450px;      
   height: 280px; 
-  padding: 24px;     /* slightly more padding */
+  padding: 24px;     
   font-family: "Jersey 10", sans-serif;
   font-size: 1.2rem; 
-
 }
 
-/* "I Agree" button styling (same as #start-btn) */
 #agree-btn {
   padding: 6px 12px;
   border: 2px solid #333;
@@ -116,8 +93,6 @@ body {
   transform: scale(0.95);
 }
 
-/* Buttons positioned ON egg */
-
 .btn {
   position: absolute;
   width: 7%;
@@ -125,7 +100,6 @@ body {
   z-index: 20;
 }
 
-/* Make image fill wrapper */
 .btn img {
   width: 100%;
   display: block;
@@ -135,7 +109,6 @@ body {
 .btn:active {
   transform: scale(0.9);
 }
-
 
 .btn:hover {
   filter: brightness(1.2);
@@ -182,8 +155,6 @@ body {
   opacity: 1;
 }
 
-
-/* Adjust these to match your egg image */
 #play-btn {
   top: 89%;
   left: 41.5%;
@@ -202,12 +173,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Buttons on egg */
 #play-btn, #feed-btn, #sleep-btn {
   width: 7%;
 }
-
-/* Adjust positions for tablets */
 
 @media (max-width: 1000px) {
   #play-btn { top: 86%; left: 41%; }
@@ -217,7 +185,6 @@ body {
   .btn { width: 10%; }
 }
 
-/* Adjust positions for phones */
 @media (max-width: 480px) {
   #play-btn { top: 87%; left: 41%; }
   #feed-btn { top: 89%; left: 49%; }
@@ -251,9 +218,8 @@ body {
   text-align: center;
   font-family: "Bitcount Grid Double", system-ui;
 
-  /* 👇 new: control spacing */
-  margin-top: 15px; /* smaller gap */
-    font-size: 1rem; /* adjust with screen */
+  margin-top: 15px; 
+  font-size: 1rem; 
 }
 
 @media (max-width: 768px) {
@@ -269,7 +235,6 @@ body {
   font-size: 16px;
 }
 
-/* Blinking cursor */
 #mood::after {
   content: '|';
   display: inline-block;
@@ -277,14 +242,13 @@ body {
   animation: blink 1s step-start infinite;
 }
 
-/* Overlay background */
 #name-popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: #00000066;
 
   display: flex;
   justify-content: center;
@@ -293,10 +257,9 @@ body {
   z-index: 1000;
 }
 
-/* Box */
 .name-box {
   background: white;
-  border: 4px solid #333;
+  border: 4px #ffffff #333;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
@@ -307,7 +270,6 @@ body {
   font-size: 1.2rem; 
 }
 
-/* Input */
 #pet-name-input {
   width: 90%;
   padding: 8px;
@@ -318,7 +280,6 @@ body {
   font-family: "Bitcount Grid Double", system-ui;
 }
 
-/* Button */
 #start-btn {
   padding: 6px 12px;
   border: 2px solid #333;
@@ -335,8 +296,6 @@ body {
   0%, 50% { opacity: 1; }
   50.1%, 100% { opacity: 0; }
 }
-
-
 
 #sound-toggle {
   position: fixed;
@@ -364,7 +323,6 @@ body {
   }
 }
 
-
 #sound-toggle:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #333;
@@ -378,11 +336,11 @@ body {
   height: 100%;
   background: #00000066;
 
-  display: none; /* hidden by default */
+  display: none; 
   justify-content: center;
   align-items: center;
 
-  z-index: 2000; /* above everything */
+  z-index: 2000; 
 }
 
 #overwhelmed-popup .name-box {

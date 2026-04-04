@@ -1,6 +1,3 @@
-// =========================
-// 🧠 STATES
-// =========================
 const STATES = {
   NORMAL: "normal",
   HAPPY: "happy",
@@ -15,12 +12,8 @@ let clickCount = 0;
 let clickTimer = null;
 
 const SPAM_LIMIT = 10;
-const SPAM_WINDOW = 3000; // 3 seconds
+const SPAM_WINDOW = 3000; 
 
-
-// =========================
-// 🎯 ELEMENTS
-// =========================
 const welcomePopup = document.getElementById("welcome-popup");
 const agreeBtn = document.getElementById("agree-btn");
 
@@ -35,9 +28,6 @@ const overwhelmedPopup = document.getElementById("overwhelmed-popup");
 const overwhelmedText = document.getElementById("overwhelmed-text");
 const overwhelmedBtn = document.getElementById("overwhelmed-btn");
 
-// =========================
-// 💾 STATE VARIABLES
-// =========================
 let animInterval = null;
 let typingInterval = null;
 let isTyping = false;
@@ -51,12 +41,8 @@ let isHungry = false;
 let isSleepy = false;
 let isSpriteLocked = false;
 
-// Load saved pet name
 let petName = localStorage.getItem("petName") || "";
 
-// =========================
-// 💬 DIALOGUES
-// =========================
 const dialogues = {
   hungry: [
     () => `${petName} is getting hungry...`,
@@ -80,9 +66,6 @@ function getRandomDialogue(type) {
   return list[Math.floor(Math.random() * list.length)]();
 }
 
-// =========================
-// 🎞️ ANIMATION HELPERS
-// =========================
 function stopAnimation() {
   if (animInterval) {
     clearInterval(animInterval);
@@ -105,11 +88,8 @@ function playAnimation(frame1, frame2, speed = 400) {
   }, speed);
 }
 
-// =========================
-// 💬 TYPING EFFECT (FIXED)
-// =========================
 function typeDialogue(text, speed = 50) {
-  if (isTyping) return; // 👈 prevents overlap
+  if (isTyping) return; // 
 
   if (typingInterval) clearInterval(typingInterval);
 
@@ -127,14 +107,11 @@ function typeDialogue(text, speed = 50) {
       clearInterval(typingInterval);
       typingInterval = null;
       moodText.classList.remove("typing");
-      isTyping = false; // 👈 unlock
+      isTyping = false; // 
     }
   }, speed);
 }
 
-// =========================
-// 👁️ BLINKING
-// =========================
 function blink() {
   if (currentState !== STATES.NORMAL || isSpriteLocked) return;
 
@@ -150,9 +127,6 @@ setInterval(() => {
   if (Math.random() < 0.8) blink();
 }, 2000);
 
-// =========================
-// 🔁 STATE MACHINE
-// =========================
 function setState(newState) {
   if (currentState === newState) return;
 
@@ -196,9 +170,6 @@ function setState(newState) {
   }
 }
 
-// =========================
-// 🐣 NAME POPUP
-// =========================
 function startGame() {
   petName = input.value.trim();
   if (petName === "") petName = "Taiyu";
@@ -215,9 +186,6 @@ input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") startGame();
 });
 
-// =========================
-// ✅ AGREE BUTTON (FIXED)
-// =========================
 agreeBtn.onclick = () => {
   welcomePopup.style.display = "none";
   popup.style.display = "flex";
@@ -228,9 +196,6 @@ agreeBtn.onclick = () => {
   }
 };
 
-// =========================
-// 🔲 RANDOM NEEDS (BALANCED)
-// =========================
 let needPool = [];
 
 function shuffleNeeds() {
@@ -248,7 +213,7 @@ function randomNeeds() {
   if (isHungry || isSleepy) return;
 
   if (needPool.length === 0) {
-    shuffleNeeds(); // refill when empty
+    shuffleNeeds(); 
   }
 
   const need = needPool.pop();
@@ -268,17 +233,11 @@ function randomNeeds() {
   } else if (need === "play") {
     typeDialogue(getRandomDialogue("play"), 50);
 
-    // optional: small happy reaction
     setState(STATES.HAPPY);
   }
 }
 
 setInterval(randomNeeds, 10000);
-
-// =========================
-// 🎮 BUTTON ACTIONS
-// =========================
-
 
 document.getElementById("feed").onclick = () => {
   handleSpam();
@@ -313,9 +272,6 @@ document.getElementById("sleep").onclick = () => {
   clickAnim();
 };
 
-// =========================
-// ✨ CLICK ANIMATION
-// =========================
 function clickAnim() {
   gsap.fromTo(
     pet,
@@ -324,9 +280,6 @@ function clickAnim() {
   );
 }
 
-// =========================
-// 🔊 SOUND
-// =========================
 const music = document.getElementById("bg-music");
 const soundToggle = document.getElementById("sound-toggle");
 
@@ -375,12 +328,10 @@ function triggerOverwhelmed() {
 
   overwhelmedPopup.style.display = "flex";
 
-  // lock pet while popup is open
   isSpriteLocked = true;
 
-  // Trigger shake animation
-  overwhelmedPopup.classList.remove("shake"); // reset animation if already present
-  void overwhelmedPopup.offsetWidth; // force reflow
+  overwhelmedPopup.classList.remove("shake"); 
+  void overwhelmedPopup.offsetWidth; 
   overwhelmedPopup.classList.add("shake");
 }
 
