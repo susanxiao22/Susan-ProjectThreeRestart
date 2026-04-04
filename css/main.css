@@ -33,7 +33,7 @@ body {
 /* Egg fills the container */
 #egg {
   width: 100%;
-  height: auto%;
+  height: auto;
   display: block;
 }
 
@@ -216,7 +216,6 @@ body {
 
   .btn { width: 10%; }
 }
-
 
 @media (max-width: 768px) {
   #play-btn { top: 86%; left: 41%; }
