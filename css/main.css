@@ -173,11 +173,6 @@ body {
   width: 7%;
 }
 
-#play-btn { top: 80%; left: 42%; transform: translate(-50%, -50%); }
-#feed-btn { top: 82%; left: 50%; transform: translate(-50%, -50%); }
-#sleep-btn { top: 80%; left: 58%; transform: translate(-50%, -50%); }
-
-
 @media (max-width: 1000px) {
   #play-btn { top: 86%; left: 41%; }
   #feed-btn { top: 89%; left: 49%; }
