@@ -28,14 +28,10 @@
 <body>
   <div class="device">
   <div class="screen">
-    <div class="egg-wrapper">
-    <!-- Egg background (always visible) -->
+  <div class="egg-wrapper">
     <img id="egg" src="img/egg.png" alt=""/>
-
-    <!-- Pet layered on top -->
     <img id="pet" src="img/normal.png" alt=""/>
 
-    <!-- Buttons ON the egg -->
     <div class="btn" id="feed-btn" data-tooltip="Play with your Tamagotchi!">
       <img id="play" src="img/nbutton1.png" alt=""/>
     </div>
@@ -46,27 +42,27 @@
 
     <div class="btn" id="sleep-btn" data-tooltip="Put your Tamagotchi to bed!">
       <img id="sleep" src="img/nbutton3.png" alt=""/>
-</div>  </div>
+    </div>  
+  </div>
 
-<!-- WELCOME POPUP -->
-<div id="welcome-popup">
-  <div class="name-box">
-    <p>Welcome to Tamagotchi Life!</p>
+  <div id="welcome-popup">
+    <div class="name-box">
+      <p>Welcome to Tamagotchi Life!</p>
       <br>Here you will be able to take care of your very own virtual pet. They will need a lot of care and attention.<br>
       Feed it, play with it, and help it grow!
       <p>Do you agree to take care of it?</p>
-    <button id="agree-btn">I Agree</button>
+      <button id="agree-btn">I Agree</button>
+    </div>
   </div>
-</div>
 
-<div id="overwhelmed-popup">
-  <div class="name-box">
-    <p id="overwhelmed-text">...</p>
-    <button id="overwhelmed-btn">Okay</button>
+  <div id="overwhelmed-popup">
+    <div class="name-box">
+      <p id="overwhelmed-text">...</p>
+      <button id="overwhelmed-btn">Okay</button>
+    </div>
   </div>
-</div>
 
-    <div class="dialogue-box">
+  <div class="dialogue-box">
     <p id="mood">...</p>
   </div>
 
@@ -80,10 +76,9 @@
   </div>
   
   <audio id="bg-music" loop>
-  <source src="audio/audio1.mp3" type="audio/mpeg">
-</audio>
-
-<button id="sound-toggle">🔊</button>
+    <source src="audio/audio1.mp3" type="audio/mpeg">
+  </audio>
+  <button id="sound-toggle">🔊</button>
 
   <script src="js/main.js"></script>
 </body>

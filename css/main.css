@@ -52,10 +52,6 @@ body {
   max-width: 120px;          
 }
 
-#play-btn { top: 80%; left: 42%; transform: translate(-50%, -50%); }
-#feed-btn { top: 82%; left: 50%; transform: translate(-50%, -50%); }
-#sleep-btn { top: 80%; left: 58%; transform: translate(-50%, -50%); }
-
 #welcome-popup {
   position: fixed;
   top: 0;
@@ -177,6 +173,11 @@ body {
   width: 7%;
 }
 
+#play-btn { top: 80%; left: 42%; transform: translate(-50%, -50%); }
+#feed-btn { top: 82%; left: 50%; transform: translate(-50%, -50%); }
+#sleep-btn { top: 80%; left: 58%; transform: translate(-50%, -50%); }
+
+
 @media (max-width: 1000px) {
   #play-btn { top: 86%; left: 41%; }
   #feed-btn { top: 89%; left: 49%; }
@@ -192,7 +193,6 @@ body {
 
   .btn { width: 12%; }
 }
-
 
 .dialogue-box::before {
   content: "";
@@ -258,7 +258,7 @@ body {
 }
 
 .name-box {
-  background: white;
+  background: #ffffff;
   border: 4px #ffffff #333;
   border-radius: 16px;
   padding: 20px;
